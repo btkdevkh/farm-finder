@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+}
+
+.mainTitle {
+  color: #03c303;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.flexLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 2;
+}
+
+.flexRight ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

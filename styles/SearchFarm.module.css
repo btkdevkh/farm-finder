@@ -1,0 +1,21 @@
+.searchFarm {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.searchFarm input {
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+}
+.searchFarm input {
+  border: 2px solid #bfbfbf;
+}
+
+.searchBtn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.searchBtn i {
+  font-size: 1.3rem;
+}
