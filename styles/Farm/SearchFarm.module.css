@@ -4,11 +4,13 @@
   gap: 0.3rem;
 }
 .searchFarm input {
+  width: 240px;
   padding: 0.4rem;
   border-radius: 0.5rem;
 }
 .searchFarm input {
   border: 2px solid #bfbfbf;
+  font-family: inherit;
 }
 
 .searchBtn {

@@ -1,3 +1,4 @@
+import SearchFarmProvider from "@/context/searchFarmContext"
 import { ReactNode } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
@@ -9,12 +10,12 @@ type ChildrenProps = {
 
 const Layout = ({ children }: ChildrenProps) => {
   return (
-    <>
+    <SearchFarmProvider>
       <Meta />
       <Header />
       {children}
       <Footer />
-    </>
+    </SearchFarmProvider>
   )
 }
 

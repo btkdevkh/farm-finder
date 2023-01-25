@@ -14,11 +14,17 @@ const FarmList = ({ farms }: FarmListProps) => {
       </h2>
       <hr />
       <br />
-      <div className={farmListStyles.farmList}>
-        {farms.map(farm => (
-          <FarmItem key={farm.id} farm={farm} />
-        ))}
-      </div>
+      {farms.length > 0 ? (
+        <div className={farmListStyles.farmList}>
+          {farms.map(farm => (
+            <FarmItem key={farm.id} farm={farm} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          Il n'y a pas de fermes trouvrées qui corresponde à votre recherche.
+        </div>
+      )}
     </>
   )
 }

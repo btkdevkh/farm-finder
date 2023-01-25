@@ -1,6 +1,32 @@
 .productItem {
   background-color: #f0f0f0;
   box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
+}
+
+.productItem h3 {
+  margin-bottom: 1rem;
+}
+
+.aliasDispo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editBtn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  border: #c1c1c1 2px solid;
+  background-color: #e09202;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.aliasNonDispo {
+  display: flex;
+  justify-content: space-between;
 }

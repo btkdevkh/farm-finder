@@ -3,7 +3,8 @@ import FarmList from "@/components/Farm/FarmList"
 import ProductList from "@/components/Product/ProductList"
 import { IProduct } from "@/types/IProduct"
 import { IFarm } from "@/types/IFarm"
-import FarmMap from "@/components/Map/FarmMap"
+import { useContext, useMemo } from "react"
+import { SearchFarmContext } from "@/context/searchFarmContext"
 
 type GreenShieldProps = {
   farms: IFarm[]
@@ -11,17 +12,38 @@ type GreenShieldProps = {
 }
 
 export default function Home({ farms, products }: GreenShieldProps) {
+  const { query } = useContext(SearchFarmContext)
+
+  const filteredFarms = useMemo(
+    () =>
+      farms.filter(farm => farm.name.toLowerCase().includes(query)) as IFarm[],
+    [farms, query]
+  )
+
+  const filteredProducts = useMemo(
+    () =>
+      products.filter(
+        product =>
+          product.name.toLowerCase().includes(query) ||
+          product.alias.toLowerCase().includes(query)
+      ) as IProduct[],
+    [farms, query]
+  )
+
   return (
-    <main className={`container ${homeStyles.home}`}>
-      <div>
-        <FarmList farms={farms} />
-      </div>
-      <br />
-      <div>
-        <ProductList products={products} />
-      </div>
-      <FarmMap />
-    </main>
+    <>
+      <main className="container">
+        <div className={homeStyles.home}>
+          <div>
+            <FarmList farms={filteredFarms} />
+          </div>
+          <br />
+          <div>
+            <ProductList products={filteredProducts} />
+          </div>
+        </div>
+      </main>
+    </>
   )
 }
 
