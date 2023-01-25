@@ -14,11 +14,17 @@ const ProductList = ({ products }: ProductListProps) => {
       </h2>
       <hr />
       <br />
-      <div className={productListStyles.productList}>
-        {products.map(product => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </div>
+      {products.length > 0 ? (
+        <div className={productListStyles.productList}>
+          {products.map(product => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          Il n'y a pas de produits trouvrés qui corresponde à votre recherche.
+        </div>
+      )}
     </>
   )
 }

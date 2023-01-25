@@ -1,0 +1,23 @@
+.aliasForm {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.aliasForm input {
+  width: 100px;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  border: #c1c1c1 2px solid;
+}
+
+.aliasForm button {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  border: #c1c1c1 2px solid;
+  background-color: #01a901;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.8rem;
+}

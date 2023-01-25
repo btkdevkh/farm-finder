@@ -1,10 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { GeoPoint } from "firebase/firestore"
-import { IAgriculturalProducts } from "@/types/IAgriculturalProducts"
+import { IProduct } from "@/types/IProduct"
 
 import type { NextApiRequest, NextApiResponse } from "next"
 
-const products: IAgriculturalProducts[] = [
+const products: IProduct[] = [
   {
     id: 1,
     name: "Station Météo Virtuelle",
@@ -33,7 +33,7 @@ const products: IAgriculturalProducts[] = [
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<IAgriculturalProducts[]>
+  res: NextApiResponse<IProduct[]>
 ) {
   res.status(200).json(products)
 }
