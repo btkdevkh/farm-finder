@@ -1,0 +1,22 @@
+.about h2 {
+  text-align: center;
+}
+.about p {
+  text-align: center;
+}
+.about ul {
+  padding: 0 3rem;
+}
+.about li {
+  list-style-type: unset;
+}
+
+.returnBtnContainer {
+  text-align: center;
+}
+.returnBtnContainer a {
+  padding: 0.5rem 1rem;
+  background-color: #01ad01;
+  border-radius: 0.5rem;
+  color: #fff;
+}

@@ -1,6 +1,16 @@
 .footer {
-  color: green;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #03c303;
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #fff;
   padding: 0.5rem;
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+}
+.footer a {
+  color: #000;
+  font-weight: 500;
+  font-size: 0.9rem;
 }

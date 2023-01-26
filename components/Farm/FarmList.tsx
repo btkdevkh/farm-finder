@@ -1,28 +1,34 @@
 import { IFarm } from "@/types/IFarm"
 import FarmItem from "./FarmItem"
 import farmListStyles from "@/styles/Farm/FarmList.module.css"
+import { SpinnerRoundFilled } from "spinners-react"
 
 type FarmListProps = {
   farms: IFarm[]
+  loading: boolean
 }
 
-const FarmList = ({ farms }: FarmListProps) => {
+const FarmList = ({ farms, loading }: FarmListProps) => {
   return (
     <>
       <h2>
-        <i className="fa-solid fa-cow"></i> Fermes
+        <i className="fa-solid fa-wheat-awn"></i> Fermes
       </h2>
       <hr />
       <br />
-      {farms.length > 0 ? (
+      {loading ? (
+        <div style={{ textAlign: "center" }}>
+          <SpinnerRoundFilled size={100} />
+        </div>
+      ) : farms.length > 0 ? (
         <div className={farmListStyles.farmList}>
           {farms.map(farm => (
             <FarmItem key={farm.id} farm={farm} />
           ))}
         </div>
       ) : (
-        <div>
-          Il n'y a pas de fermes trouvrées qui corresponde à votre recherche.
+        <div className="no-datas-found">
+          Il n&apos;y a pas de fermes trouvrées.
         </div>
       )}
     </>

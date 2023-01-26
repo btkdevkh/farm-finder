@@ -9,7 +9,9 @@
   margin-bottom: 1rem;
 }
 
-.aliasDispo {
+.aliasDispo,
+.aliasNonDispo {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -24,9 +26,4 @@
   font-weight: 700;
   cursor: pointer;
   font-size: 0.8rem;
-}
-
-.aliasNonDispo {
-  display: flex;
-  justify-content: space-between;
 }

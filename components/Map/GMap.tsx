@@ -2,15 +2,18 @@ import Image from "next/image"
 import GMapStyles from "@/styles/Map/GMap.module.css"
 import Map, { Marker } from "react-map-gl"
 import { GeoPoint } from "firebase/firestore"
+import { ReactNode } from "react"
 
 type GMapProps = {
+  children?: ReactNode
   location: GeoPoint
-  id: string | number
+  handleCLick?: () => void
 }
 
-const GMap = ({ location }: GMapProps) => {
+const GMap = ({ children, location, handleCLick }: GMapProps) => {
   return (
     <div className={GMapStyles.mapContainer}>
+      {children}
       <Map
         initialViewState={{
           longitude: location.longitude,
@@ -24,8 +27,10 @@ const GMap = ({ location }: GMapProps) => {
           longitude={location.longitude}
           latitude={location.latitude}
           anchor="center"
+          style={{ cursor: "pointer" }}
+          onClick={handleCLick}
         >
-          <Image src="/pin.png" width={40} height={55} priority alt="pin" />
+          <Image src="/pin.png" width={20} height={30} priority alt="pin" />
         </Marker>
       </Map>
     </div>

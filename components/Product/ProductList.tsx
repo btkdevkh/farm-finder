@@ -1,12 +1,14 @@
 import { IProduct } from "@/types/IProduct"
 import ProductItem from "./ProductItem"
 import productListStyles from "@/styles/Product/ProductList.module.css"
+import { SpinnerRoundFilled } from "spinners-react"
 
 type ProductListProps = {
   products: IProduct[]
+  loading: boolean
 }
 
-const ProductList = ({ products }: ProductListProps) => {
+const ProductList = ({ products, loading }: ProductListProps) => {
   return (
     <>
       <h2>
@@ -14,15 +16,19 @@ const ProductList = ({ products }: ProductListProps) => {
       </h2>
       <hr />
       <br />
-      {products.length > 0 ? (
+      {loading ? (
+        <div style={{ textAlign: "center" }}>
+          <SpinnerRoundFilled size={100} />
+        </div>
+      ) : products.length > 0 ? (
         <div className={productListStyles.productList}>
           {products.map(product => (
             <ProductItem key={product.id} product={product} />
           ))}
         </div>
       ) : (
-        <div>
-          Il n'y a pas de produits trouvrés qui corresponde à votre recherche.
+        <div className="no-datas-found">
+          Il n&apos;y a pas de produits trouvrés.
         </div>
       )}
     </>
