@@ -8,7 +8,7 @@
 
 .headerContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0.8rem;
   max-width: 1200px;
@@ -20,13 +20,13 @@
   color: #03c303;
   font-weight: 400;
   text-transform: uppercase;
+  display: none;
 }
 
 .flexLeft {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-grow: 2;
 }
 
 .flexRight ul {
@@ -41,4 +41,15 @@
   right: 0;
   font-size: 0.6rem;
   font-weight: 500;
+}
+
+@media (min-width: 500px) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mainTitle {
+    display: block;
+  }
 }
