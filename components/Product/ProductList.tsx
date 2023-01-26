@@ -27,9 +27,7 @@ const ProductList = ({ products, loading }: ProductListProps) => {
           ))}
         </div>
       ) : (
-        <div className="no-datas-found">
-          Il n&apos;y a pas de produits trouvrés.
-        </div>
+        <div className="no-datas-found">Aucun produit trouvé.</div>
       )}
     </>
   )

@@ -27,9 +27,7 @@ const FarmList = ({ farms, loading }: FarmListProps) => {
           ))}
         </div>
       ) : (
-        <div className="no-datas-found">
-          Il n&apos;y a pas de fermes trouvrées.
-        </div>
+        <div className="no-datas-found">Aucune ferme trouvée.</div>
       )}
     </>
   )
