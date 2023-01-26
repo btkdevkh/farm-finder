@@ -1,10 +1,13 @@
 # FARMFINDER SPA APP (Next.js, Typescript et Firestore)
 
+URL du site : [https://farm-finder-sigma.vercel.app/]
+
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
 yarn dev
@@ -21,5 +24,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. La liste affiche toutes les informations présentes en base pour chaque item.
 
 3. L’utilisateur pourra modifier/ajouter un alias pour les produits.
-
-URL du site : []
