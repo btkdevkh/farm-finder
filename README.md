@@ -1,6 +1,6 @@
 # FARMFINDER SPA APP (Next.js, Typescript et Firestore)
 
-URL du site : [https://farm-finder-sigma.vercel.app/]
+Url deployed site [https://farm-finder-sigma.vercel.app/](https://farm-finder-sigma.vercel.app/)
 
 ## Getting Started
 
