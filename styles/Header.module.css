@@ -1,10 +1,18 @@
 .header {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+  max-width: 1200px;
+  margin: auto;
 }
 
 .mainTitle {
@@ -30,8 +38,7 @@
 .watermark {
   position: absolute;
   bottom: -0.3rem;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
   font-size: 0.6rem;
   font-weight: 500;
 }

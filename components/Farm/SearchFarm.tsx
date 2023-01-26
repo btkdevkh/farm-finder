@@ -1,9 +1,9 @@
-import { SearchFarmContext } from "@/context/searchFarmContext"
+import { FarmFinderContext } from "@/context/farmFinderContext"
 import searchFarmStyles from "@/styles/Farm/SearchFarm.module.css"
 import { useContext } from "react"
 
 const SearchFarm = () => {
-  const { handleChange } = useContext(SearchFarmContext)
+  const { handleChange } = useContext(FarmFinderContext)
 
   return (
     <form className={searchFarmStyles.searchFarm}>

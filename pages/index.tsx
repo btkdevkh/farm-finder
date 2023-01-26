@@ -1,33 +1,38 @@
+import { useContext, useMemo } from "react"
+import { FarmFinderContext } from "@/context/farmFinderContext"
+import { IProduct } from "@/types/IProduct"
+import { IFarm } from "@/types/IFarm"
+import { colFarms, colProducts } from "@/firebase/config"
 import homeStyles from "@/styles/Home.module.css"
 import FarmList from "@/components/Farm/FarmList"
 import ProductList from "@/components/Product/ProductList"
-import { IProduct } from "@/types/IProduct"
-import { IFarm } from "@/types/IFarm"
-import { useContext, useMemo } from "react"
-import { SearchFarmContext } from "@/context/searchFarmContext"
+import useCollection from "@/hooks/useCollection"
 
-type GreenShieldProps = {
-  farms: IFarm[]
-  products: IProduct[]
-}
+export default function Home() {
+  const { query } = useContext(FarmFinderContext)
 
-export default function Home({ farms, products }: GreenShieldProps) {
-  const { query } = useContext(SearchFarmContext)
+  // GET FIRESTORE COLLECTIONS
+  const { documents: farms, loading } = useCollection(colFarms)
+  const { documents: products } = useCollection(colProducts)
 
+  // SEARCH FILTERED FARMS
   const filteredFarms = useMemo(
     () =>
-      farms.filter(farm => farm.name.toLowerCase().includes(query)) as IFarm[],
+      farms.filter((farm: IFarm) =>
+        farm.name.toLowerCase().includes(query)
+      ) as IFarm[],
     [farms, query]
   )
 
+  // SEARCH FILTERED PRODUCTS
   const filteredProducts = useMemo(
     () =>
       products.filter(
-        product =>
+        (product: IProduct) =>
           product.name.toLowerCase().includes(query) ||
           product.alias.toLowerCase().includes(query)
       ) as IProduct[],
-    [farms, query]
+    [products, query]
   )
 
   return (
@@ -35,37 +40,14 @@ export default function Home({ farms, products }: GreenShieldProps) {
       <main className="container">
         <div className={homeStyles.home}>
           <div>
-            <FarmList farms={filteredFarms} />
+            <FarmList farms={filteredFarms} loading={loading} />
           </div>
           <br />
           <div>
-            <ProductList products={filteredProducts} />
+            <ProductList products={filteredProducts} loading={loading} />
           </div>
         </div>
       </main>
     </>
   )
-}
-
-export const getStaticProps = async () => {
-  try {
-    const responseFarm = await fetch("http://localhost:3000/api/farms")
-    const farms = await responseFarm.json()
-
-    const responseProduct = await fetch("http://localhost:3000/api/products")
-    const products = await responseProduct.json()
-
-    if (!farms || !products) {
-      return { notFound: true }
-    }
-
-    return {
-      props: {
-        farms,
-        products,
-      },
-    }
-  } catch (error) {
-    return { notFound: true }
-  }
 }

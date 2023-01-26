@@ -25,9 +25,21 @@ const products: IProduct[] = [
   },
   {
     id: 4,
-    name: "Capteur Humidité",
+    name: "Pompe Fût Itcan",
     alias: "",
-    location: new GeoPoint(45.73785222838645, -0.3457048319105412),
+    location: new GeoPoint(45.73785222838623, -0.3457048319105428),
+  },
+  {
+    id: 5,
+    name: "Incorporateur Phytos",
+    alias: "Phytos",
+    location: new GeoPoint(45.73785222838663, -0.3457048319105448),
+  },
+  {
+    id: 6,
+    name: "Cuve de stockage horizontale",
+    alias: "Apollo",
+    location: new GeoPoint(45.73785222838678, -0.3457048319105463),
   },
 ]
 

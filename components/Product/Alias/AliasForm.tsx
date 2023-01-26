@@ -1,19 +1,24 @@
+import { colProducts } from "@/firebase/config"
+import useCollection from "@/hooks/useCollection"
 import aliasFormStyles from "@/styles/Alias/AliasForm.module.css"
+import { IProduct } from "@/types/IProduct"
 import { FormEvent, useState } from "react"
 
 type AliasFormProps = {
   isEdit?: boolean
-  alias?: string
+  product?: IProduct
+  setIsEdit: (upd: boolean) => void
 }
 
-const AliasForm = ({ isEdit, alias }: AliasFormProps) => {
-  const [dataAlias, setDataAlias] = useState(alias ?? "")
+const AliasForm = ({ isEdit, product, setIsEdit }: AliasFormProps) => {
+  const { updateDocument } = useCollection(colProducts)
+  const [alias, setAlias] = useState(product?.alias ?? "")
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
-    // TODO: Add data to firestore
-    console.log(dataAlias)
+    // if (!alias) return
+    await updateDocument({ alias }, product?.id as string)
+    setIsEdit(false)
   }
 
   return (
@@ -21,8 +26,8 @@ const AliasForm = ({ isEdit, alias }: AliasFormProps) => {
       <input
         type="text"
         placeholder="e.g. SMV"
-        value={dataAlias}
-        onChange={e => setDataAlias(e.target.value)}
+        value={alias}
+        onChange={e => setAlias(e.target.value)}
       />
       <button
         type="submit"

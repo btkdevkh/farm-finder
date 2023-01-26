@@ -2,7 +2,7 @@
 
 :root {
   --min-width: 470px;
-  --max-width: 1024px;
+  --max-width: 1200px;
   --min-height: 100vh;
 }
 
@@ -12,18 +12,21 @@
   margin: 0;
 }
 
-html,
+html {
+  overflow-x: hidden;
+}
+
 body {
   min-width: var(--min-width);
-  overflow-x: hidden;
   font-family: "Open Sans", sans-serif;
 }
 
 .container {
+  overflow-x: hidden;
   max-width: var(--max-width);
   min-height: var(--min-height);
   margin: auto;
-  padding: 15px;
+  padding: 1rem;
 }
 
 h2,
@@ -47,5 +50,9 @@ a {
 hr {
   border: none;
   height: 1px;
-  background-color: #000036;
+  background-color: #bcbcbc;
+}
+
+.no-datas-found {
+  font-size: 0.9rem;
 }

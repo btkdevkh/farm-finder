@@ -13,8 +13,10 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
   return (
     <div className={productItemStyles.productItem}>
-      <h3>{product.name}</h3>
-      <GMap location={product.location} id={product.id as number} />
+      <h3>
+        <i className="fa-solid fa-tractor"></i> {product.name}
+      </h3>
+      <GMap location={product.location} />
       <div>
         {product.alias ? (
           <div className={productItemStyles.aliasDispo}>
@@ -25,14 +27,18 @@ const ProductItem = ({ product }: ProductItemProps) => {
             </p>
 
             {isEdit ? (
-              <AliasForm isEdit={isEdit} alias={product.alias} />
+              <AliasForm
+                isEdit={isEdit}
+                product={product}
+                setIsEdit={setIsEdit}
+              />
             ) : (
               <button
                 type="button"
                 className={productItemStyles.editBtn}
                 onClick={() => setIsEdit(true)}
               >
-                Modifier d'alias
+                Modifier d&apos;alias
               </button>
             )}
           </div>
@@ -42,7 +48,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
               <small>Alias: n/a</small>
             </p>
             <div>
-              <AliasForm />
+              <AliasForm product={product} setIsEdit={setIsEdit} />
             </div>
           </div>
         )}

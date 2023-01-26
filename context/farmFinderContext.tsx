@@ -14,13 +14,14 @@ const defaultState: DefaultGlobalState = {
   handleChange: () => {},
 }
 
-export const SearchFarmContext = createContext(defaultState)
+export const FarmFinderContext = createContext(defaultState)
 
-const SearchFarmProvider = ({ children }: ChildrenProps) => {
+const FarmFinderProvider = ({ children }: ChildrenProps) => {
   const [query, setQuery] = useState<string>("")
 
-  const handleChange = (queryString: string) =>
+  const handleChange = (queryString: string) => {
     setQuery(queryString.toLowerCase())
+  }
 
   const contextValue = {
     query,
@@ -28,10 +29,10 @@ const SearchFarmProvider = ({ children }: ChildrenProps) => {
   }
 
   return (
-    <SearchFarmContext.Provider value={contextValue}>
+    <FarmFinderContext.Provider value={contextValue}>
       {children}
-    </SearchFarmContext.Provider>
+    </FarmFinderContext.Provider>
   )
 }
 
-export default SearchFarmProvider
+export default FarmFinderProvider
