@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app"
 import { collection, getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCsAw9TdCHh24rCP-yASy7V5XveXYidNUA",
-  authDomain: "farm-finder-60f18.firebaseapp.com",
-  projectId: "farm-finder-60f18",
-  storageBucket: "farm-finder-60f18.appspot.com",
-  messagingSenderId: "384294314225",
-  appId: "1:384294314225:web:efea831a3b2771b1174950",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 }
 
 // Initialize Firebase
